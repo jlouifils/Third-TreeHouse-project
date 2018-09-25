@@ -17,13 +17,14 @@ $('#title').on('click', function(){
 
 //                                            T-SHIRT SELECTION
 //select the shirt color element
-const $colorShirt = $('#color-js-puns');
+const $colorShirt = $('#colors-js-puns');
 const $designShirt = $('#design');
 //using if else statement when the correct shirt design is click then the correct design color will show
 $colorShirt.hide();
 $designShirt.on('click', function(){
   if ($('#design option:selected').text() === 'Theme - JS Puns') {
-    $colorShirt.show()
+    $colorShirt.show();
+    $('#color').val('cornflowerblue');
     $('#color option[value = cornflowerblue]').show();
     $('#color option[value =  darkslategrey]').show();
     $('#color option[value =  gold]').show();
@@ -33,5 +34,19 @@ $designShirt.on('click', function(){
     //if SELECT THEME is selected, this function hides all of the shirt colors
     } else if ($('#design option:selected').text() === 'Select Theme') {
       $colorShirt.hide();
+    }
+  });
+
+  $designShirt.on('click', function(){
+    if ($('#design option:selected').val() === 'heart js') {
+      $colorShirt.show();
+      $('#color').val('tomato');
+      $('#color option[value = cornflowerblue]').hide();
+      $('#color option[value =  darkslategrey]').hide();
+      $('#color option[value =  gold]').hide();
+      $('#color option[value = tomato]').show();
+      $('#color option[value = steelblue]').show();
+      $('#color option[value = dimgrey]').show();
+
     }
   });
